@@ -34,7 +34,7 @@ const userSchema = new Schema({
     problemSolved:{
         type:[{
             type:Schema.Types.ObjectId,
-            ref:'problem',
+            ref:'Problem',
             unique:true
         }],
         
@@ -50,7 +50,7 @@ const userSchema = new Schema({
 
 userSchema.post('findOneAndDelete', async function (userInfo){
     if(userInfo){
-        await mongoose.model('submission').deleteMany({userId:userInfo._id});
+        await mongoose.model('Submission').deleteMany({userId:userInfo._id});
     }
 })
 
